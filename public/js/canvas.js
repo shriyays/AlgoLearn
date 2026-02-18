@@ -5,14 +5,15 @@ export class CanvasRenderer {
         this.width = this.canvas.width;
         this.height = this.canvas.height;
         
+        // NEW COLORS: Pink default, Green/Yellow/Red for sorting
         this.colors = {
-            default: '#ff79c6',
-            comparing: '#ff5ac1',
-            swapping: '#ff9ed8',
-            sorted: '#bd93f9',
-            pivot: '#ffb86c',
-            merging: '#ff79c6',
-            heap: '#ff5ac1',
+            default: '#ff79c6',      // Pink - before sorting
+            comparing: '#f59e0b',    // Yellow/Orange - comparing
+            swapping: '#ef4444',     // Red - swapping
+            sorted: '#10b981',       // Green - sorted
+            pivot: '#8b5cf6',        // Purple - pivot (for quick sort)
+            merging: '#f59e0b',      // Yellow - merging
+            heap: '#ef4444',         // Red - heap operation
             background: '#1e1e1e'
         };
         
@@ -49,26 +50,24 @@ export class CanvasRenderer {
             
             let color = this.colors.default;
             
+            // Priority order for coloring
             if (sorted.includes(index)) {
-                color = this.colors.sorted;
-            } else if (index === pivot) {
-                color = this.colors.pivot;
-            } else if (comparing.includes(index)) {
-                color = this.colors.comparing;
+                color = this.colors.sorted; // Green
             } else if (swapping.includes(index)) {
-                color = this.colors.swapping;
+                color = this.colors.swapping; // Red
+            } else if (comparing.includes(index)) {
+                color = this.colors.comparing; // Yellow
+            } else if (index === pivot) {
+                color = this.colors.pivot; // Purple
             } else if (merging.includes(index)) {
-                color = this.colors.merging;
+                color = this.colors.merging; // Yellow
             } else if (heap.includes(index)) {
-                color = this.colors.heap;
+                color = this.colors.heap; // Red
             }
             
-            // Draw bar with glow effect
-            this.ctx.shadowBlur = 10;
-            this.ctx.shadowColor = color;
+            // Draw bar WITHOUT glow
             this.ctx.fillStyle = color;
             this.ctx.fillRect(x, y, barWidth, barHeight);
-            this.ctx.shadowBlur = 0;
             
             // Draw value on top
             if (barWidth > 20) {
@@ -85,20 +84,14 @@ export class CanvasRenderer {
         this.ctx.fillStyle = '#ff79c6';
         this.ctx.font = 'bold 20px Arial';
         this.ctx.textAlign = 'center';
-        this.ctx.shadowBlur = 10;
-        this.ctx.shadowColor = '#ff79c6';
         this.ctx.fillText('Loading... ✨', this.width / 2, this.height / 2);
-        this.ctx.shadowBlur = 0;
     }
     
     drawError(message) {
         this.clear();
-        this.ctx.fillStyle = '#ff5555';
+        this.ctx.fillStyle = '#ef4444';
         this.ctx.font = 'bold 18px Arial';
         this.ctx.textAlign = 'center';
-        this.ctx.shadowBlur = 10;
-        this.ctx.shadowColor = '#ff5555';
         this.ctx.fillText(message + ' 💔', this.width / 2, this.height / 2);
-        this.ctx.shadowBlur = 0;
     }
 }
