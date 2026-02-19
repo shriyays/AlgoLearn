@@ -309,9 +309,8 @@ class QuizPage {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     
     // Show results after a delay
-    setTimeout(() => {
-      this.showResults(results);
-    }, 2000);
+    // Show results immediately
+    this.showResults(results);
   }
 
   showResults(results) {
