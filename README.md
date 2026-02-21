@@ -6,7 +6,7 @@
 
  #Link to Slides : 
 
- # Link to Youtube video : 
+ #Link to Youtube video : https://youtu.be/Ocpg4S7hQE0?si=ipJ9ByeALM7zF26D
 
 > **Master Algorithms Through Visualization, Not Memorization**
 
