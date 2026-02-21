@@ -1,16 +1,16 @@
-import express from 'express';
-import { ObjectId } from 'mongodb';
-import { getDB } from '../db.js';
+import express from "express";
+import { ObjectId } from "mongodb";
+import { getDB } from "../db.js";
 
 const router = express.Router();
 
 const fallbackData = [
-    {
-        _id: '000000000000000000000001',
-        name: "Bubble Sort",
-        category: "sorting",
-        difficulty: "easy",
-        pseudocode: `function bubbleSort(arr) {
+  {
+    _id: "000000000000000000000001",
+    name: "Bubble Sort",
+    category: "sorting",
+    difficulty: "easy",
+    pseudocode: `function bubbleSort(arr) {
   for (i = 0; i < n-1; i++) {
     for (j = 0; j < n-i-1; j++) {
       if (arr[j] > arr[j+1]) {
@@ -19,16 +19,17 @@ const fallbackData = [
     }
   }
 }`,
-        timeComplexity: { best: "O(n)", average: "O(n²)", worst: "O(n²)" },
-        spaceComplexity: "O(1)",
-        description: "A simple sorting algorithm that repeatedly steps through the list."
-    },
-    {
-        _id: '000000000000000000000002',
-        name: "Quick Sort",
-        category: "sorting",
-        difficulty: "medium",
-        pseudocode: `function quickSort(arr, low, high) {
+    timeComplexity: { best: "O(n)", average: "O(n²)", worst: "O(n²)" },
+    spaceComplexity: "O(1)",
+    description:
+      "A simple sorting algorithm that repeatedly steps through the list.",
+  },
+  {
+    _id: "000000000000000000000002",
+    name: "Quick Sort",
+    category: "sorting",
+    difficulty: "medium",
+    pseudocode: `function quickSort(arr, low, high) {
   if (low < high) {
     pivot = partition(arr, low, high)
     quickSort(arr, low, pivot-1)
@@ -48,16 +49,20 @@ function partition(arr, low, high) {
   swap(arr[i+1], arr[high])
   return i + 1
 }`,
-        timeComplexity: { best: "O(n log n)", average: "O(n log n)", worst: "O(n²)" },
-        spaceComplexity: "O(log n)",
-        description: "An efficient divide-and-conquer algorithm."
+    timeComplexity: {
+      best: "O(n log n)",
+      average: "O(n log n)",
+      worst: "O(n²)",
     },
-    {
-        _id: '000000000000000000000003',
-        name: "Merge Sort",
-        category: "sorting",
-        difficulty: "medium",
-        pseudocode: `function mergeSort(arr, left, right) {
+    spaceComplexity: "O(log n)",
+    description: "An efficient divide-and-conquer algorithm.",
+  },
+  {
+    _id: "000000000000000000000003",
+    name: "Merge Sort",
+    category: "sorting",
+    difficulty: "medium",
+    pseudocode: `function mergeSort(arr, left, right) {
   if (left < right) {
     mid = (left + right) / 2
     mergeSort(arr, left, mid)
@@ -99,16 +104,21 @@ function merge(arr, left, mid, right) {
     k++
   }
 }`,
-        timeComplexity: { best: "O(n log n)", average: "O(n log n)", worst: "O(n log n)" },
-        spaceComplexity: "O(n)",
-        description: "A stable divide-and-conquer algorithm that divides the array into halves, sorts them, and merges them back together."
+    timeComplexity: {
+      best: "O(n log n)",
+      average: "O(n log n)",
+      worst: "O(n log n)",
     },
-    {
-        _id: '000000000000000000000004',
-        name: "Heap Sort",
-        category: "sorting",
-        difficulty: "hard",
-        pseudocode: `function heapSort(arr) {
+    spaceComplexity: "O(n)",
+    description:
+      "A stable divide-and-conquer algorithm that divides the array into halves, sorts them, and merges them back together.",
+  },
+  {
+    _id: "000000000000000000000004",
+    name: "Heap Sort",
+    category: "sorting",
+    difficulty: "hard",
+    pseudocode: `function heapSort(arr) {
   n = arr.length
   
   // Build max heap
@@ -139,39 +149,44 @@ function heapify(arr, n, i) {
     heapify(arr, n, largest)
   }
 }`,
-        timeComplexity: { best: "O(n log n)", average: "O(n log n)", worst: "O(n log n)" },
-        spaceComplexity: "O(1)",
-        description: "A comparison-based sorting algorithm that uses a binary heap data structure to sort elements efficiently."
-    }
+    timeComplexity: {
+      best: "O(n log n)",
+      average: "O(n log n)",
+      worst: "O(n log n)",
+    },
+    spaceComplexity: "O(1)",
+    description:
+      "A comparison-based sorting algorithm that uses a binary heap data structure to sort elements efficiently.",
+  },
 ];
 
-router.get('/', async (req, res) => {
-    try {
-        const db = getDB();
-        const algorithms = await db.collection('algorithms').find({}).toArray();
-        res.json(algorithms);
-    } catch (error) {
-        console.error('Error:', error.message);
-        res.json(fallbackData);
-    }
+router.get("/", async (req, res) => {
+  try {
+    const db = getDB();
+    const algorithms = await db.collection("algorithms").find({}).toArray();
+    res.json(algorithms);
+  } catch (error) {
+    console.error("Error:", error.message);
+    res.json(fallbackData);
+  }
 });
 
-router.get('/:id', async (req, res) => {
-    try {
-        const db = getDB();
-        const algorithm = await db.collection('algorithms').findOne({ 
-            _id: new ObjectId(req.params.id) 
-        });
-        if (!algorithm) {
-            return res.status(404).json({ error: 'Not found' });
-        }
-        res.json(algorithm);
-    } catch (error) {
-        console.error('Error:', error.message);
-        const algo = fallbackData.find(a => a._id === req.params.id);
-        if (algo) return res.json(algo);
-        res.json(fallbackData[0]);
+router.get("/:id", async (req, res) => {
+  try {
+    const db = getDB();
+    const algorithm = await db.collection("algorithms").findOne({
+      _id: new ObjectId(req.params.id),
+    });
+    if (!algorithm) {
+      return res.status(404).json({ error: "Not found" });
     }
+    res.json(algorithm);
+  } catch (error) {
+    console.error("Error:", error.message);
+    const algo = fallbackData.find((a) => a._id === req.params.id);
+    if (algo) return res.json(algo);
+    res.json(fallbackData[0]);
+  }
 });
 
 export default router;

@@ -1,57 +1,72 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-    
-    <title>AlgoLearn - Master Algorithms Visually</title>
-    <link rel="stylesheet" href="css/main.css">
-</head>
-<body>
+    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon/favicon-16x16.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
 
+    <title>AlgoLearn - Master Algorithms Visually</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
     <header class="main-nav">
-        <div class="nav-container">
-            <a href="/" class="nav-brand"> AlgoLearn</a>
-                <nav class="nav-links">
-                <a href="/" class="nav-link active">Algorithms</a>
-                <a href="/dashboard.html" class="nav-link">Dashboard</a>
-                <a href="/leaderboard.html" class="nav-link">Leaderboard</a>
-            </nav>
-        </div>
+      <div class="nav-container">
+        <a href="/" class="nav-brand"> AlgoLearn</a>
+        <nav class="nav-links">
+          <a href="/" class="nav-link active">Algorithms</a>
+          <a href="/dashboard.html" class="nav-link">Dashboard</a>
+          <a href="/leaderboard.html" class="nav-link">Leaderboard</a>
+        </nav>
+      </div>
     </header>
 
     <main class="container">
-        <!-- <section class="hero">
+      <!-- <section class="hero">
             <h2>Learn Sorting Algorithms Interactively ✨</h2>
             <p>Watch, step through, and master classic algorithms with real-time visualizations</p>
         </section> -->
 
-        <section class="hero">
-            <h2>Learn Sorting Algorithms Interactively ✨</h2>
-            <p>Watch, step through, and master classic algorithms with real-time visualizations</p>
-            
-            <div class="username-section">
-                <label class="username-label">Enter your name to get started:</label>
-                <input 
-                    type="text" 
-                    id="username-input" 
-                    placeholder="e.g., Shriya, Max, Mike"
-                >
-                <p id="username-message"></p>
-            </div>
-        </section>
-        <section class="algorithm-grid" id="algorithmGrid">
-            <div class="loading">Loading algorithms...</div>
-        </section>
+      <section class="hero">
+        <h2>Learn Sorting Algorithms Interactively ✨</h2>
+        <p>
+          Watch, step through, and master classic algorithms with real-time
+          visualizations
+        </p>
+
+        <div class="username-section">
+          <label class="username-label">Enter your name to get started:</label>
+          <input
+            type="text"
+            id="username-input"
+            placeholder="e.g., Shriya, Max, Mike"
+          />
+          <p id="username-message"></p>
+        </div>
+      </section>
+      <section class="algorithm-grid" id="algorithmGrid">
+        <div class="loading">Loading algorithms...</div>
+      </section>
     </main>
 
     <script type="module" src="js/index.js"></script>
-
-</body>
+  </body>
 </html>

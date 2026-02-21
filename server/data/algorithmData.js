@@ -1,9 +1,9 @@
 const algorithmData = [
-    {
-        name: "Bubble Sort",
-        category: "sorting",
-        difficulty: "easy",
-        pseudocode: `function bubbleSort(arr) {
+  {
+    name: "Bubble Sort",
+    category: "sorting",
+    difficulty: "easy",
+    pseudocode: `function bubbleSort(arr) {
   for (i = 0; i < n-1; i++) {
     for (j = 0; j < n-i-1; j++) {
       if (arr[j] > arr[j+1]) {
@@ -12,19 +12,20 @@ const algorithmData = [
     }
   }
 }`,
-        timeComplexity: {
-            best: "O(n)",
-            average: "O(n²)",
-            worst: "O(n²)"
-        },
-        spaceComplexity: "O(1)",
-        description: "A simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order."
+    timeComplexity: {
+      best: "O(n)",
+      average: "O(n²)",
+      worst: "O(n²)",
     },
-    {
-        name: "Quick Sort",
-        category: "sorting",
-        difficulty: "medium",
-        pseudocode: `function quickSort(arr, low, high) {
+    spaceComplexity: "O(1)",
+    description:
+      "A simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order.",
+  },
+  {
+    name: "Quick Sort",
+    category: "sorting",
+    difficulty: "medium",
+    pseudocode: `function quickSort(arr, low, high) {
   if (low < high) {
     pivot = partition(arr, low, high)
     quickSort(arr, low, pivot-1)
@@ -44,19 +45,20 @@ function partition(arr, low, high) {
   swap(arr[i+1], arr[high])
   return i + 1
 }`,
-        timeComplexity: {
-            best: "O(n log n)",
-            average: "O(n log n)",
-            worst: "O(n²)"
-        },
-        spaceComplexity: "O(log n)",
-        description: "An efficient divide-and-conquer algorithm that selects a pivot element and partitions the array around it."
+    timeComplexity: {
+      best: "O(n log n)",
+      average: "O(n log n)",
+      worst: "O(n²)",
     },
-    {
-        name: "Merge Sort",
-        category: "sorting",
-        difficulty: "medium",
-        pseudocode: `function mergeSort(arr, left, right) {
+    spaceComplexity: "O(log n)",
+    description:
+      "An efficient divide-and-conquer algorithm that selects a pivot element and partitions the array around it.",
+  },
+  {
+    name: "Merge Sort",
+    category: "sorting",
+    difficulty: "medium",
+    pseudocode: `function mergeSort(arr, left, right) {
   if (left < right) {
     mid = (left + right) / 2
     mergeSort(arr, left, mid)
@@ -98,19 +100,20 @@ function merge(arr, left, mid, right) {
     k++
   }
 }`,
-        timeComplexity: {
-            best: "O(n log n)",
-            average: "O(n log n)",
-            worst: "O(n log n)"
-        },
-        spaceComplexity: "O(n)",
-        description: "A stable divide-and-conquer algorithm that divides the array into halves, sorts them, and merges them back together."
+    timeComplexity: {
+      best: "O(n log n)",
+      average: "O(n log n)",
+      worst: "O(n log n)",
     },
-    {
-        name: "Heap Sort",
-        category: "sorting",
-        difficulty: "hard",
-        pseudocode: `function heapSort(arr) {
+    spaceComplexity: "O(n)",
+    description:
+      "A stable divide-and-conquer algorithm that divides the array into halves, sorts them, and merges them back together.",
+  },
+  {
+    name: "Heap Sort",
+    category: "sorting",
+    difficulty: "hard",
+    pseudocode: `function heapSort(arr) {
   n = arr.length
   
   // Build max heap
@@ -141,14 +144,15 @@ function heapify(arr, n, i) {
     heapify(arr, n, largest)
   }
 }`,
-        timeComplexity: {
-            best: "O(n log n)",
-            average: "O(n log n)",
-            worst: "O(n log n)"
-        },
-        spaceComplexity: "O(1)",
-        description: "A comparison-based sorting algorithm that uses a binary heap data structure to sort elements efficiently."
-    }
+    timeComplexity: {
+      best: "O(n log n)",
+      average: "O(n log n)",
+      worst: "O(n log n)",
+    },
+    spaceComplexity: "O(1)",
+    description:
+      "A comparison-based sorting algorithm that uses a binary heap data structure to sort elements efficiently.",
+  },
 ];
 
 export { algorithmData };

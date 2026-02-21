@@ -30,7 +30,11 @@
 }
 
 .stat-card {
-  background: linear-gradient(135deg, rgba(255, 121, 198, 0.1), rgba(189, 147, 249, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 121, 198, 0.1),
+    rgba(189, 147, 249, 0.1)
+  );
   border: 1px solid var(--pink-primary);
   padding: 28px;
   border-radius: 12px;
@@ -214,7 +218,11 @@
 
 .achievement-badge.unlocked {
   border-color: var(--pink-primary);
-  background: linear-gradient(135deg, rgba(255, 121, 198, 0.15), rgba(189, 147, 249, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 121, 198, 0.15),
+    rgba(189, 147, 249, 0.1)
+  );
   box-shadow: 0 4px 16px rgba(255, 121, 198, 0.3);
 }
 

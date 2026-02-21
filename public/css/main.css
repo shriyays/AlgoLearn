@@ -74,7 +74,11 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: linear-gradient(135deg, var(--pink-primary), var(--purple));  /* Pink gradient! */
+  background: linear-gradient(
+    135deg,
+    var(--pink-primary),
+    var(--purple)
+  ); /* Pink gradient! */
   border-bottom: 2px solid var(--border);
   box-shadow: 0 4px 12px var(--shadow);
   margin: 0;
@@ -125,15 +129,14 @@
 .nav-link:hover {
   background: var(--bg-tertiary);
   color: var(--text-primary);
- 
 }
 
 .nav-link.active {
-  background: white;  
-  color: var(--pink-primary); 
+  background: white;
+  color: var(--pink-primary);
   border-color: white;
-  font-weight: 700; 
-  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.4); 
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.4);
 }
 
 * {
@@ -143,7 +146,7 @@
 }
 
 body {
-  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-family: "Consolas", "Monaco", "Courier New", monospace;
   line-height: 1.6;
   color: var(--text-secondary);
   background-color: var(--bg-primary);
@@ -280,7 +283,7 @@ nav a.active {
 }
 
 .algorithm-card::before {
-  content: '✨';
+  content: "✨";
   position: absolute;
   top: -10px;
   right: -10px;
@@ -387,8 +390,13 @@ nav a.active {
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
 .error {
