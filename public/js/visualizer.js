@@ -128,7 +128,7 @@ class VisualizerApp {
         document.getElementById('comparisons').textContent = comparisons;
         document.getElementById('swaps').textContent = swaps;
         document.getElementById('timeElapsed').textContent = `${time}ms`;
-        document.getElementById('currentStep').textContent = `${step} / ${total}`;
+        document.getElementById('currentStep').textContent = `${step + 1} / ${total}`;  // Add +1
     }
     
     showError(message) {
